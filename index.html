@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#06121c">
+  <meta name="description" content="InsightGuard Command Center — simulación interactiva de monitoreo inteligente de infraestructura.">
+  <title>InsightGuard — Command Center</title>
+  <link rel="icon" href="assets/insightguard-logo.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="ambient"></div>
+  <div class="scanlines"></div>
+
+  <header class="topbar">
+    <div class="brand">
+      <img src="assets/insightguard-logo.png" alt="InsightGuard" class="brand-logo">
+      <div class="brand-copy">
+        <div class="brand-name">INSIGHT<span>GUARD</span></div>
+        <div class="brand-sub">INTELLIGENT INFRASTRUCTURE</div>
+      </div>
+    </div>
+    <div class="top-right">
+      <div class="clock" id="clock">00:00:00</div>
+      <div class="connection"><i></i> SECURE LINK</div>
+      <div class="mode">COMMAND CENTER / DEMO</div>
+    </div>
+  </header>
+
+  <main class="shell">
+    <section class="hero">
+      <div class="hero-copy-wrap">
+        <div class="eyebrow"><span class="live-dot"></span> AI-GUARD / LIVE INFRASTRUCTURE MONITORING</div>
+        <h1>Detect. <em>Predict.</em> Respond.</h1>
+        <p>Centro de operaciones interactivo de InsightGuard. Observa la infraestructura, identifica anomalías y ejecuta una respuesta simulada en tiempo real.</p>
+        <div class="hero-chips">
+          <span>● 47 activos monitoreados</span>
+          <span>◈ Híbrido / On-Prem + Cloud</span>
+          <span>⌁ Predictive Maintenance</span>
+        </div>
+      </div>
+      <div class="hero-actions">
+        <button id="incidentBtn" class="primary"><span>⚡</span> SIMULAR INCIDENTE</button>
+        <button id="resetBtn" class="secondary">RESTABLECER</button>
+      </div>
+    </section>
+
+    <section class="metrics">
+      <div class="metric"><span>INFRASTRUCTURE STATUS</span><strong id="systemStatus" class="good">OPERATIONAL</strong><small>All systems nominal</small></div>
+      <div class="metric"><span>UPTIME</span><strong id="uptime">99.98%</strong><small>Target ≥ 99.90%</small></div>
+      <div class="metric"><span>ACTIVE NODES</span><strong>47</strong><small id="nodeCount">4 / 4 online</small></div>
+      <div class="metric"><span>AI-GUARD</span><strong id="agentStatus" class="good">ACTIVE</strong><small id="agentSub">Continuous monitoring</small></div>
+    </section>
+
+    <section class="main-grid">
+      <article class="panel infrastructure">
+        <div class="panel-head"><div><span class="section-kicker">TOPOLOGY</span><h2>Infrastructure</h2></div><span class="panel-state good">● HEALTHY</span></div>
+        <div class="topology">
+          <div class="topo-line l1"></div><div class="topo-line l2"></div><div class="topo-line l3"></div>
+          <div class="cloud-node"><span>☁</span><b>AWS / CLOUD</b><small>Compute</small></div>
+          <div class="core-node"><div class="core-ring"></div><span>IG</span><b>AI-GUARD</b><small>Orchestrator</small></div>
+          <div class="db-node"><span>◉</span><b>DATABASE</b><small>Critical data</small></div>
+          <div class="server-node server-a"><span>▣</span><b>SERVER-01</b><small>Production</small><i>ONLINE</i></div>
+          <div class="server-node server-b" data-node="server02"><span>▣</span><b>SERVER-02</b><small>Application</small><i>ONLINE</i></div>
+        </div>
+        <div class="node-summary">
+          <div><b>47</b><span>assets</span></div><div><b>12</b><span>services</span></div><div><b>3</b><span>cloud zones</span></div><div><b>24/7</b><span>coverage</span></div>
+        </div>
+      </article>
+
+      <article class="panel agent-panel">
+        <div class="panel-head"><div><span class="section-kicker">AUTONOMOUS LAYER</span><h2>AI-GUARD</h2></div><span class="agent-badge" id="agentBadge">● MONITORING</span></div>
+        <div class="agent-core"><div class="orbit orbit-a"></div><div class="orbit orbit-b"></div><div class="orbit-dot"></div><div class="core">IG</div></div>
+        <div id="agentMessage" class="agent-message">Monitoring infrastructure...<br><span>All systems within expected parameters.</span></div>
+        <div class="agent-progress"><div id="agentProgress"></div></div>
+        <div class="agent-steps"><span id="step1" class="active">MONITOR</span><i>→</i><span id="step2">DETECT</span><i>→</i><span id="step3">ANALYZE</span><i>→</i><span id="step4">RESPOND</span></div>
+      </article>
+
+      <article class="panel telemetry">
+        <div class="panel-head"><div><span class="section-kicker">TELEMETRY</span><h2>Live metrics</h2></div><span id="telemetryState" class="panel-state good">NORMAL</span></div>
+        <div class="telemetry-row"><div><span>CPU LOAD</span><b id="cpuValue">42%</b></div><div class="bar"><i id="cpuBar" style="width:42%"></i></div></div>
+        <div class="telemetry-row"><div><span>MEMORY</span><b id="memValue">51%</b></div><div class="bar"><i id="memBar" style="width:51%"></i></div></div>
+        <div class="telemetry-row"><div><span>NETWORK</span><b id="netValue">38%</b></div><div class="bar"><i id="netBar" style="width:38%"></i></div></div>
+        <div class="telemetry-row"><div><span>STORAGE</span><b id="storageValue">64%</b></div><div class="bar"><i id="storageBar" style="width:64%"></i></div></div>
+        <div class="sparkline" id="sparkline"><span></span></div>
+      </article>
+
+      <article class="panel logs-panel">
+        <div class="panel-head"><div><span class="section-kicker">EVENT STREAM</span><h2>AI Event Stream</h2></div><span class="panel-state">LIVE</span></div>
+        <div id="logs" class="logs" aria-live="polite"></div>
+      </article>
+
+      <article class="panel scenario-panel">
+        <div class="panel-head"><div><span class="section-kicker">CONTROLLED DEMO</span><h2>Incident Lab</h2></div><span class="panel-state">SAFE SIMULATION</span></div>
+        <p class="muted">Elige un escenario para mostrar cómo AI-GUARD podría responder ante una anomalía. No se realiza ninguna acción sobre infraestructura real.</p>
+        <div class="scenario-grid">
+          <button class="scenario active" data-scenario="overload"><b>⚡ SERVER OVERLOAD</b><small>Saturación de recursos</small></button>
+          <button class="scenario" data-scenario="network"><b>⌁ NETWORK ANOMALY</b><small>Tráfico fuera de patrón</small></button>
+          <button class="scenario" data-scenario="storage"><b>◫ STORAGE ALERT</b><small>Capacidad crítica</small></button>
+        </div>
+        <button id="runScenario" class="run-scenario">▶ EJECUTAR ESCENARIO SELECCIONADO</button>
+      </article>
+
+      <article class="panel impact-panel">
+        <div class="panel-head"><div><span class="section-kicker">BUSINESS INTELLIGENCE</span><h2>Impacto estimado</h2></div><span class="panel-state">SIMULATION</span></div>
+        <div class="impact-grid">
+          <div><small>DOWNTIME PREVENTED</small><strong id="downtime">0 min</strong></div>
+          <div><small>EST. LOSS AVOIDED</small><strong id="loss">$0</strong></div>
+          <div><small>ENERGY OPTIMIZATION</small><strong id="energy">0%</strong></div>
+          <div><small>RESPONSE TIME</small><strong id="response">—</strong></div>
+        </div>
+        <div class="green-card"><span>🌱 GREEN INFRASTRUCTURE</span><b id="greenText">Optimización de recursos sin incidente activo.</b></div>
+      </article>
+    </section>
+
+    <section class="report" id="report">
+      <div class="report-title"><div><span class="section-kicker">AUTOMATED INCIDENT REPORT</span><h2>InsightGuard Report</h2></div><b id="reportStatus">SYSTEM OPERATIONAL</b></div>
+      <div class="report-grid">
+        <div><small>INCIDENT ID</small><strong id="incidentId">IG-DEMO-000</strong></div>
+        <div><small>DETECTION</small><strong id="detection">—</strong></div>
+        <div><small>ROOT CAUSE</small><strong id="rootCause">No anomaly</strong></div>
+        <div><small>ACTION</small><strong id="action">Continuous monitoring</strong></div>
+      </div>
+      <div class="report-note" id="reportNote">Demo educativa: los eventos, métricas y ahorros son simulados para representar el concepto de InsightGuard.</div>
+    </section>
+
+    <section class="qr-section">
+      <div class="qr-copy">
+        <span class="section-kicker">VISITOR EXPERIENCE</span>
+        <h2>¿Quieres poner a prueba a AI-GUARD?</h2>
+        <p>Publica esta demo y convierte el QR en la puerta de entrada al Command Center. El visitante podrá abrirlo desde su celular y ejecutar una simulación segura.</p>
+        <div class="qr-actions"><button id="copyUrl" class="secondary">COPIAR ENLACE</button><button id="openVisitor" class="secondary">ABRIR MODO VISITANTE</button></div>
+        <div class="url-box"><span>DEMO URL</span><code id="demoUrl">Publica el proyecto para generar el enlace</code></div>
+      </div>
+      <div class="qr-card">
+        <div class="qr-placeholder" id="qrPlaceholder"><div class="qr-corners"></div><span>QR<br>READY</span></div>
+        <b>ACTIVA AI-GUARD</b>
+        <small>Generaremos el QR definitivo cuando tengamos la URL pública.</small>
+      </div>
+    </section>
+
+    <footer><span>INSIGHTGUARD</span> · Server Maintenance · Predictive Infrastructure · AI-GUARD <span class="footer-right">DEMO / 2026</span></footer>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
