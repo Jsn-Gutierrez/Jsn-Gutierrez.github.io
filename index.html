@@ -42,6 +42,7 @@
       </div>
       <div class="hero-actions">
         <button id="incidentBtn" class="primary"><span>⚡</span> SIMULAR INCIDENTE</button>
+        <button id="demoModeBtn" class="secondary"><span>▶</span> MODO DEMO</button>
         <button id="resetBtn" class="secondary">RESTABLECER</button>
       </div>
     </section>
@@ -73,7 +74,7 @@
         <div class="panel-head"><div><span class="section-kicker">AUTONOMOUS LAYER</span><h2>AI-GUARD</h2></div><span class="agent-badge" id="agentBadge">● MONITORING</span></div>
         <div class="agent-core"><div class="orbit orbit-a"></div><div class="orbit orbit-b"></div><div class="orbit-dot"></div><div class="core">IG</div></div>
         <div id="agentMessage" class="agent-message">Monitoring infrastructure...<br><span>All systems within expected parameters.</span></div>
-        <div class="agent-progress"><div id="agentProgress"></div></div>
+        <div class="agent-progress"><div id="agentProgress"></div></div><div class="agent-analysis" id="agentAnalysis"><span>BASELINE</span><b>Within expected parameters</b></div>
         <div class="agent-steps"><span id="step1" class="active">MONITOR</span><i>→</i><span id="step2">DETECT</span><i>→</i><span id="step3">ANALYZE</span><i>→</i><span id="step4">RESPOND</span></div>
       </article>
 
@@ -83,7 +84,7 @@
         <div class="telemetry-row"><div><span>MEMORY</span><b id="memValue">51%</b></div><div class="bar"><i id="memBar" style="width:51%"></i></div></div>
         <div class="telemetry-row"><div><span>NETWORK</span><b id="netValue">38%</b></div><div class="bar"><i id="netBar" style="width:38%"></i></div></div>
         <div class="telemetry-row"><div><span>STORAGE</span><b id="storageValue">64%</b></div><div class="bar"><i id="storageBar" style="width:64%"></i></div></div>
-        <div class="sparkline" id="sparkline"><span></span></div>
+        <div class="sparkline-wrap"><div class="chart-labels"><span>LIVE TELEMETRY / CPU</span><span id="chartTrend">STABLE</span></div><canvas class="sparkline" id="sparkline" aria-label="Gráfica de telemetría en tiempo real"></canvas></div>
       </article>
 
       <article class="panel logs-panel">
@@ -122,7 +123,7 @@
         <div><small>ROOT CAUSE</small><strong id="rootCause">No anomaly</strong></div>
         <div><small>ACTION</small><strong id="action">Continuous monitoring</strong></div>
       </div>
-      <div class="report-note" id="reportNote">Demo educativa: los eventos, métricas y ahorros son simulados para representar el concepto de InsightGuard.</div>
+      <div class="report-note" id="reportNote">Demo educativa: los eventos, métricas y ahorros son simulados para representar el concepto de InsightGuard.</div><div class="report-actions"><button id="explainBtn" class="secondary">¿QUÉ OCURRIÓ?</button><button id="reportDemoBtn" class="secondary">VER RESUMEN</button></div><div class="explain-box" id="explainBox" hidden></div>
     </section>
 
     <section class="qr-section">
@@ -140,7 +141,7 @@
       </div>
     </section>
 
-    <footer><span>INSIGHTGUARD</span> · Server Maintenance · Predictive Infrastructure · AI-GUARD <span class="footer-right">DEMO / 2026</span></footer>
+    <footer><span>INSIGHTGUARD</span> · Server Maintenance · Predictive Infrastructure · AI-GUARD <span class="footer-right">CONTROLLED DEMO / 2026</span></footer>
   </main>
   <script src="app.js"></script>
 </body>
