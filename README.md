@@ -18,24 +18,6 @@ Demo web estática para la exposición de InsightGuard.
 ## Ejecutar en el PC
 Abre `index.html` con el navegador. No necesita instalación.
 
-## Publicar gratis
-### GitHub Pages
-1. Crea un repositorio público en GitHub.
-2. Sube el contenido de esta carpeta al repositorio.
-3. En Settings → Pages, configura la publicación desde la rama `main` y la carpeta `/ (root)`.
-4. GitHub generará una URL pública.
-
-### Cloudflare Pages
-También puedes conectar el repositorio de GitHub a Cloudflare Pages. Para esta web no hay comando de compilación: los archivos estáticos se publican directamente.
-
-## QR
-Después de obtener la URL pública, genera el QR con:
-
-```bash
-python3 make_qr.py "https://TU-URL-PUBLICA"
-```
-
-Esto crea `assets/insightguard-qr.png`.
 
 Para la exposición recomendamos imprimir el QR con un texto tipo:
 
